@@ -18,6 +18,11 @@ A simple web-based Rock, Paper, Scissors game with a responsive design and anima
 - Animated UI for user interactions
 - Score tracking and display
 - Responsive design
+- Animated confetti for winning and losing
+- Visual animations for user interactions
+- Dynamic display of round results
+- Customizable player names
+- Tips section for game rules
 
 ## Installation
 
