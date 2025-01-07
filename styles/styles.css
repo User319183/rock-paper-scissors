@@ -16,6 +16,15 @@ h1 {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.gradient-text {
+	font-size: 4rem;
+	background: linear-gradient(135deg, #ff7e5f, #feb47b);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 input#username,
 input#username2,
 select#rounds,
@@ -33,6 +42,10 @@ input#username::placeholder,
 input#username2::placeholder {
 	color: #fff;
 	opacity: 1;
+}
+
+#startGame {
+	margin-top: 20px;
 }
 
 #tips,
