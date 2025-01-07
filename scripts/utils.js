@@ -35,6 +35,16 @@ export function updateScore(result, userScore, computerScore) {
 	return { userScore, computerScore };
 }
 
+// * Trigger losing animation
+export function triggerLosingAnimation() {
+	confetti({
+		particleCount: 100,
+		spread: 70,
+		origin: { y: 0.6 },
+		colors: ["#ff0000", "#ff6347", "#ff4500"], // * Red and orange colors for confetti particles for losing animation
+	});
+}
+
 // * Display the result of each round
 export function displayRoundResult(
 	userChoice,
@@ -96,10 +106,18 @@ export function displayFinalResult(
 
 	if (userScore > computerScore) {
 		roundResult.textContent += ` ${userName} wins the game! Congratulations!`;
+		// * Trigger confetti animation for winning
+		confetti({
+			particleCount: 100,
+			spread: 70,
+			origin: { y: 0.6 },
+		});
 	} else if (userScore < computerScore) {
 		roundResult.textContent += ` ${
 			gameMode === 1 ? "Computer" : userName2
 		} wins the game! Better luck next time, ${userName}.`;
+		// * Trigger losing animation
+		triggerLosingAnimation();
 	} else {
 		roundResult.textContent += " It's a draw! Well played!";
 	}

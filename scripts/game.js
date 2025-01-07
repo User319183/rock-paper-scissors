@@ -55,6 +55,8 @@ export function resetGame() {
 	roundsPlayed = 0;
 	document.getElementById("roundResult").textContent = "";
 	document.getElementById("score").textContent = "";
+	document.getElementById("player1Score").textContent = "Player 1: 0";
+	document.getElementById("player2Score").textContent = "Player 2: 0";
 	document.getElementById("resetGame").classList.add("d-none");
 	document.getElementById("startGame").disabled = false;
 	document.getElementById("username").disabled = false;
