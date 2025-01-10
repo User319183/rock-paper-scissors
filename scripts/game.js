@@ -73,6 +73,9 @@ export function resetGame() {
 export function handleChoice(event) {
 	if (roundsPlayed < totalRounds) {
 		const userChoice = event.target.getAttribute("data-choice");
+		if (!userChoice) {
+			return; // Exit if userChoice is null or undefined
+		}
 		event.target.classList.add("choice-animation");
 		setTimeout(() => {
 			event.target.classList.remove("choice-animation");
