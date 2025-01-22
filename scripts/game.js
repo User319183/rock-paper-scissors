@@ -53,20 +53,66 @@ export function resetGame() {
 	userScore = 0;
 	computerScore = 0;
 	roundsPlayed = 0;
-	document.getElementById("roundResult").textContent = "";
-	document.getElementById("score").textContent = "";
-	document.getElementById("player1Score").textContent = "Player 1: 0";
-	document.getElementById("player2Score").textContent = "Player 2: 0";
-	document.getElementById("resetGame").classList.add("d-none");
-	document.getElementById("startGame").disabled = false;
-	document.getElementById("username").disabled = false;
-	document.getElementById("username2").disabled = false;
-	document.getElementById("rounds").disabled = false;
-	document.getElementById("gameMode").disabled = false;
-	document.getElementById("username").value = "";
-	document.getElementById("username2").value = "";
-	document.getElementById("launcher").classList.remove("d-none");
-	document.getElementById("game").classList.add("d-none");
+
+	const roundResultElement = document.getElementById("roundResult");
+	if (roundResultElement) {
+		const roundResult = roundResultElement.querySelector(".card-text");
+		if (roundResult) {
+			roundResult.textContent = "";
+		}
+	}
+
+	const player1Score = document.getElementById("player1Score");
+	if (player1Score) {
+		player1Score.textContent = "Player 1: 0";
+	}
+
+	const player2Score = document.getElementById("player2Score");
+	if (player2Score) {
+		player2Score.textContent = "Player 2: 0";
+	}
+
+	const resetGameButton = document.getElementById("resetGame");
+	if (resetGameButton) {
+		resetGameButton.classList.add("d-none");
+	}
+
+	const startGameButton = document.getElementById("startGame");
+	if (startGameButton) {
+		startGameButton.disabled = false;
+	}
+
+	const usernameInput = document.getElementById("username");
+	if (usernameInput) {
+		usernameInput.disabled = false;
+		usernameInput.value = "";
+	}
+
+	const usernameInput2 = document.getElementById("username2");
+	if (usernameInput2) {
+		usernameInput2.disabled = false;
+		usernameInput2.value = "";
+	}
+
+	const roundsSelect = document.getElementById("rounds");
+	if (roundsSelect) {
+		roundsSelect.disabled = false;
+	}
+
+	const gameModeSelect = document.getElementById("gameMode");
+	if (gameModeSelect) {
+		gameModeSelect.disabled = false;
+	}
+
+	const launcherSection = document.getElementById("launcher");
+	if (launcherSection) {
+		launcherSection.classList.remove("d-none");
+	}
+
+	const gameSection = document.getElementById("game");
+	if (gameSection) {
+		gameSection.classList.add("d-none");
+	}
 }
 
 // * Handle the user's choice
@@ -100,9 +146,11 @@ export function handleChoice(event) {
 			if (playerTurn === 1) {
 				player1Choice = userChoice;
 				playerTurn = 2;
-				document.getElementById(
-					"roundResult"
-				).textContent = `${userName2}'s turn!`;
+				document
+					.getElementById("roundResult")
+					.querySelector(
+						".card-text"
+					).textContent = `${userName2}'s turn!`;
 			} else {
 				player2Choice = userChoice;
 				const result = determineWinner(player1Choice, player2Choice);

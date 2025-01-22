@@ -42,7 +42,6 @@
                 </select>
                 <button id="startGame"
                     class="btn btn-primary mt-4 animate__animated animate__pulse animate__infinite">Start Game</button>
-
                 <!-- Tips Section -->
                 <div id="tips" class="mt-4 animate__animated animate__fadeInUp">
                     <h2>Tips</h2>
@@ -52,7 +51,6 @@
                         <li>Paper beats Rock</li>
                     </ul>
                 </div>
-
                 <!-- Credits Section -->
                 <div id="credits" class="mt-4 animate__animated animate__fadeInUp">
                     <h2>Credits</h2>
@@ -76,16 +74,21 @@
             </div>
             <div class="row mb-3">
                 <div class="col text-center">
-                    <p id="roundResult" class="animate__animated animate__fadeIn"></p>
+                    <div id="roundResult" class="card animate__animated animate__fadeIn">
+                        <div class="card-body">
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col text-center">
-                    <div id="scoreBoard" class="animate__animated animate__fadeIn">
-                        <h3>Score</h3>
-                        <p id="player1Score">Player 1: 0</p>
-                        <p id="player2Score">Player 2: 0</p>
-                        <p id="score"></p>
+                    <div id="scoreBoard" class="card animate__animated animate__fadeIn">
+                        <div class="card-body">
+                            <h3 class="card-title">Score</h3>
+                            <p id="player1Score" class="badge bg-primary">Player 1: 0</p>
+                            <p id="player2Score" class="badge bg-secondary">Player 2: 0</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,10 +99,9 @@
                 </div>
             </div>
         </div>
-        </div>
     </main>
     <footer class="text-center mt-4">
-        <p>&copy; 2024 User319183. All rights reserved.</p>
+        <p>&copy; 2025 User319183. All rights reserved.</p>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

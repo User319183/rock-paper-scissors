@@ -56,7 +56,18 @@ export function displayRoundResult(
 	computerScore,
 	gameMode
 ) {
-	const roundResult = document.getElementById("roundResult");
+	const roundResultElement = document.getElementById("roundResult");
+	if (!roundResultElement) {
+		console.error("roundResult element not found");
+		return;
+	}
+
+	const roundResult = roundResultElement.querySelector(".card-text");
+	if (!roundResult) {
+		console.error("roundResult .card-text element not found");
+		return;
+	}
+
 	const player1Score = document.getElementById("player1Score");
 	const player2Score = document.getElementById("player2Score");
 
@@ -97,7 +108,17 @@ export function displayFinalResult(
 	computerScore,
 	gameMode
 ) {
-	const roundResult = document.getElementById("roundResult");
+	const roundResultElement = document.getElementById("roundResult");
+	if (!roundResultElement) {
+		console.error("roundResult element not found");
+		return;
+	}
+
+	const roundResult = roundResultElement.querySelector(".card-text");
+	if (!roundResult) {
+		console.error("roundResult .card-text element not found");
+		return;
+	}
 
 	roundResult.classList.add("result-animation");
 	setTimeout(() => {
