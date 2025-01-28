@@ -37,6 +37,17 @@ export function startGame() {
 	if (gameMode === 1) {
 		userName2 = "Computer";
 	}
+
+	const player1Score = document.getElementById("player1Score");
+	const player2Score = document.getElementById("player2Score");
+
+	if (player1Score) {
+		player1Score.innerHTML = `<i class="fas fa-user"></i> ${userName}: 0`;
+	}
+	if (player2Score) {
+		player2Score.innerHTML = gameMode === 1 ? '<i class="fas fa-desktop"></i> Computer: 0' : `<i class="fas fa-user"></i> ${userName2}: 0`;
+	}
+
 	if (userName && (gameMode === 1 || (gameMode === 2 && userName2))) {
 		launcherSection.classList.add("d-none");
 		gameSection.classList.remove("d-none");
@@ -64,12 +75,12 @@ export function resetGame() {
 
 	const player1Score = document.getElementById("player1Score");
 	if (player1Score) {
-		player1Score.textContent = "Player 1: 0";
+		player1Score.innerHTML = `<i class="fas fa-user"></i> ${userName}: 0`;
 	}
 
 	const player2Score = document.getElementById("player2Score");
 	if (player2Score) {
-		player2Score.textContent = "Player 2: 0";
+		player2Score.innerHTML = gameMode === 1 ? '<i class="fas fa-desktop"></i> Computer: 0' : `<i class="fas fa-user"></i> ${userName2}: 0`;
 	}
 
 	const resetGameButton = document.getElementById("resetGame");
@@ -120,7 +131,7 @@ export function handleChoice(event) {
 	if (roundsPlayed < totalRounds) {
 		const userChoice = event.target.getAttribute("data-choice");
 		if (!userChoice) {
-			return; // Exit if userChoice is null or undefined
+			return; // * Exit if userChoice is null or undefined
 		}
 		event.target.classList.add("choice-animation");
 		setTimeout(() => {

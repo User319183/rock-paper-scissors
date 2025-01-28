@@ -1,6 +1,8 @@
 body {
     font-family: "Roboto", sans-serif;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4a00e0 100%);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
     color: #fff;
     min-height: 100vh;
     display: flex;
@@ -8,6 +10,12 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
 }
 
 h1 {
@@ -18,7 +26,7 @@ h1 {
 
 .gradient-text {
     font-size: 4rem;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    background: linear-gradient(135deg, #00ff95, #00d9ff);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -31,11 +39,24 @@ select#rounds,
 select#gameMode {
     max-width: 300px;
     margin: 0 auto;
-    background-color: #2a5298;
+    background: rgba(42, 82, 152, 0.3);
     color: #fff;
-    border: 1px solid #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 25px;
-    padding: 10px;
+    padding: 12px 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input#username:focus,
+input#username2:focus,
+select#rounds:focus,
+select#gameMode:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
 }
 
 input#username::placeholder,
@@ -54,9 +75,10 @@ input#username2::placeholder {
     color: #fff;
     border: 1px solid #fff;
     border-radius: 10px;
-    padding: 15px;
-    margin-top: 20px;
-    text-align: left;
+    padding: 15px 25px;
+    margin: 20px auto;
+    max-width: 400px;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -79,21 +101,24 @@ input#username2::placeholder {
 }
 
 #tips ul li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    text-align: center;
 }
 
 button {
     font-size: 1.2rem;
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 12px 24px;
+    margin: 8px;
     border-radius: 50px;
-    transition: transform 0.2s, background-color 0.2s;
-    background-color: #1e3c72;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: #fff;
-    border: 1px solid #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 button i {
@@ -101,8 +126,15 @@ button i {
 }
 
 button:hover {
-    transform: scale(1.1);
-    background-color: #2a5298;
+    transform: scale(1.05) translateY(-3px);
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+button:active {
+    transform: scale(0.98) translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #roundResult,
@@ -223,12 +255,21 @@ button.choice:active {
 }
 
 .card {
-    background-color: rgba(42, 82, 152, 0.8);
+    background: rgba(42, 82, 152, 0.2);
     color: #fff;
-    border: 1px solid #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     margin-top: 20px;
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .card-title {
@@ -258,4 +299,89 @@ button.choice:active {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+.fas {
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Game title icon */
+h1 .fa-gamepad {
+    color: #00ff95;
+    text-shadow: 2px 2px 4px rgba(0, 255, 149, 0.3);
+    filter: drop-shadow(0 0 2px rgba(0, 255, 149, 0.5));
+}
+
+/* Tips icon */
+.fa-lightbulb {
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Credits icon */
+.fa-code {
+    color: #00FF00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+/* Trophy icon */
+.fa-trophy {
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Rock icon */
+.fa-hand-rock {
+    color: #808080;
+    text-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+}
+
+/* Paper icon */
+.fa-hand-paper {
+    color: #FFFFFF;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Scissors icon */
+.fa-hand-scissors {
+    color: #C0C0C0;
+    text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+}
+
+/* Keyboard icon */
+.fa-keyboard {
+    color: #4169E1;
+    text-shadow: 0 0 10px rgba(65, 105, 225, 0.5);
+}
+
+/* Desktop/Computer icon */
+.fa-desktop {
+    color: #32CD32;
+    text-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+}
+
+/* Start Game icon */
+.fa-play-circle {
+    color: #00ff95;
+    text-shadow: 0 0 10px rgba(0, 255, 149, 0.5);
+    margin-right: 8px;
+}
+
+h1 .fas,
+h2 .fas,
+h3 .fas {
+    margin: 0 10px;
+    opacity: 0.9;
+}
+
+h1:hover .fas,
+h2:hover .fas,
+h3:hover .fas {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+}
+
+.card:hover .fas {
+    transform: scale(1.1);
 }

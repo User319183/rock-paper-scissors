@@ -94,9 +94,9 @@ export function displayRoundResult(
 		}`;
 	}
 
-	player1Score.textContent = `${userName}: ${userScore}`;
-	player2Score.textContent = `${
-		gameMode === 1 ? "Computer" : userName2
+	player1Score.innerHTML = `<i class="fas fa-user"></i> ${userName}: ${userScore}`;
+	player2Score.innerHTML = `${
+		gameMode === 1 ? '<i class="fas fa-robot"></i> Computer' : '<i class="fas fa-user"></i> ' + userName2
 	}: ${computerScore}`;
 }
 
